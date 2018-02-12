@@ -1,0 +1,9 @@
+db:
+  image: 'postgres:latest'
+web:
+  command: 'python manage.py runserver 0.0.0.0:8000'
+  image: 'rexmac/alienvault:latest'
+  links:
+    - db
+  ports:
+    - '8000:8000'
