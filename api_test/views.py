@@ -2,8 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
 from rest_framework import status
-from models import Users, Visits
-from threat import IPDetails
+from models import User, Visit
 from serializers import *
 
 
@@ -27,15 +26,15 @@ class IPDetailsView(APIView):
         # Track API usage
         alien_vault_id = request.COOKIES.get(COOKIE_NAME, None)
         if alien_vault_id is None:
-            user = Users()
+            user = User()
         else:
             try:
-                user = Users.objects.get(alien_vault_id=alien_vault_id)
-            except:
-                user = Users()
+                user = User.objects.get(alien_vault_id=alien_vault_id)
+            except User.DoesNotExist:
+                user = User()
         user.save()
 
-        visit = Visits(
+        visit = Visit(
             user=user,
             address=request.META.get('REMOTE_ADDR'),  # TODO: Handle X-Forwarded-For
             endpoint='api/threat/ip/{}'.format(ip)
@@ -57,7 +56,7 @@ class IPDetailsView(APIView):
 # TODO: View for /api/traffic
 class TrafficView(APIView):
     def get(self, request):
-        users = Users.objects.order_by('alien_vault_id').all()
+        users = User.objects.order_by('alien_vault_id').all()
         serialize = TrafficSerializer(users, many=True)
         response = Response(serialize.data, status=status.HTTP_200_OK)
         return response
