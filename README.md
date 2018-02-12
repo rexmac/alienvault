@@ -50,10 +50,10 @@ Ignore all other JSON values for the purpose of this exercise.
 
 ## Part II: Track Users and Return Traffic Info at API Endpoint
 1. Create a Django model to track simple statistics about who accesses the API via the web.
-  a. IP Address
-  b. Timestamp (epoch)
-  c. API endpoint accessed ("/api/threat/ip/1.2.3.4")
-  d. The value of AlienvaultID set in #4 in the previous section
+    * IP Address
+    * Timestamp (epoch)
+    * API endpoint accessed ("/api/threat/ip/1.2.3.4")
+    * The value of AlienvaultID set in #4 in the previous section
 2. On each visit to the API endpoint above, record statistics about the user visiting.
 3. Create another API endpoint using DRF at /api/traffic/ that does a simple dump of all the traffic stored in the model above sorted by AlienvaultID.
 
