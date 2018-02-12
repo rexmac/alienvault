@@ -53,6 +53,7 @@ class IPDetailsView(APIView):
 
         return response
 
+
 # TODO: View for /api/traffic
 class TrafficView(APIView):
     def get(self, request):

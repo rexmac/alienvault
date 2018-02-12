@@ -13,7 +13,6 @@ class Users(models.Model):
 
 
 class Visits(models.Model):
-    # alien_vault_id = models.CharField(max_length=12, default=generate_id())
     user = models.ForeignKey(Users, related_name='visits')
     address = models.CharField(max_length=15)
     timestamp = models.DateTimeField(auto_now_add=True)

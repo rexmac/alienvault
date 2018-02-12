@@ -4,8 +4,8 @@ from threat import IPDetails
 
 class ActivitySerializer(serializers.Serializer):
     activity_type = serializers.CharField(source='name')
-    first_date = serializers.IntegerField(source='first_date.sec',default=None)
-    last_date = serializers.IntegerField(source='last_date.sec',default=None)
+    first_date = serializers.IntegerField(source='first_date.sec', default=None)
+    last_date = serializers.IntegerField(source='last_date.sec', default=None)
 
 
 class DetailsSerializer(serializers.Serializer):

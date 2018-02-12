@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'b@kxs1zq%mgs@31k(7dvfeg5s-n(w80r5b!7_96=2l(ctzd%2*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     'web.alienvault.a13dfe7d.svc.dockerapp.io'
